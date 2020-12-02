@@ -1,11 +1,10 @@
 package com.example.blogspringbootaop.controller;
 
+import com.example.blogspringbootaop.annotation.HasPermissions;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
- * @author 付疆疆
  * @date 2020/12/2 8:20
  */
 @RestController
@@ -35,6 +34,16 @@ public class AOPController {
     @GetMapping("/e")
     public void e(){
         log.info("来一包干脆面");
+    }
+
+    @GetMapping("/f/{money}")
+    public void f(@PathVariable("money") String arg){
+        log.info("来一盒海鲜面");
+    }
+
+    @PostMapping("/g")
+    public void g(@RequestBody String arg){
+        log.info("来一把刀削面");
     }
 
 }
